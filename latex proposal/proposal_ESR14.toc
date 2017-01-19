@@ -1,0 +1,4 @@
+\select@language {french}
+\select@language {english}
+\contentsline {paragraph}{}{1}{section*.4}
+\contentsline {section}{References}{2}{section*.5}

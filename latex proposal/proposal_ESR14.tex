@@ -1,0 +1,198 @@
+\documentclass[12pt,a4paper,oneside,onecolumn]{article}
+
+%------------Packages à inclure--------------------------------------------------
+\usepackage[english, french]{babel}	% Veille à respecter la typographie française
+\usepackage[utf8]{inputenc}		% Autorise les accents dans le source
+\usepackage[T1]{fontenc}		% Permet d'imprimer les caractères accentués
+					% comme un caractère spécial et non
+					% caractère + accent.
+\usepackage{array}			% Extension pour les tableaux
+\usepackage{graphicx}			% Permet d'inclure des graphique PS et PDF
+\usepackage{color}			% Permet d'obtenir du texte coloré
+\usepackage{colortbl}
+\usepackage{fancyhdr}			% Permet de gérer les en-têtes et pieds de page
+\usepackage{lastpage}			% Donne le nombre de pages
+%\usepackage{slashbox}			% Permet de scinder des cellules de tableau en diagonale
+\usepackage[top=3cm,bottom=3cm,right=3cm,left=3cm]{geometry}			% Permet de modifier la géométrie de la page
+\usepackage{lettrine}			% Permet d'utiliser les lettrines
+\usepackage{latexsym}			% Permet d'utiliser plein de jolis symboles
+\usepackage{amsmath}			% Permet d'utiliser encore plus de jolis symboles
+\usepackage{multirow}			% Permet d'avoir des cellules multilignes dans un tableau
+\usepackage{cite}			% Permet de compresser les citation aux références bibliographiques
+\usepackage{makeidx}		%permet de créer un index
+\usepackage[nottoc, notlof, notlot]{tocbibind}		%biblio index dans la tdm
+\usepackage{cases}
+\usepackage{amssymb}
+\usepackage{amsfonts, amssymb, amsthm, bm, bbm}
+\usepackage{url, upgreek, epsfig, psfrag, rotating}
+\usepackage{algpseudocode}
+\usepackage{mathabx}
+ \usepackage{subfig}
+
+ \usepackage{algorithmicx}
+
+
+
+%liens dans les pdfs
+\usepackage{hyperref}
+\hypersetup{
+%backref=true, %permet d'ajouter des liens dans...
+%pagebackref=true,%...les bibliographies
+%hyperindex=true, %ajoute des liens dans les index.
+colorlinks=true, %colorise les liens
+breaklinks=true, %permet le retour à la ligne dans les liens trop longs
+urlcolor= black, %couleur des hyperliens
+linkcolor= black, %couleur des liens internes
+%5bookmarks=true, %créé des signets pour Acrobat
+bookmarksopen=true, %si les signets Acrobat sont créés,
+%les afficher complètement.
+pdftitle={Title}, %informations apparaissant dans
+pdfauthor={Bénédicte Motz}, %dans les informations du document
+pdfsubject={Subject} %sous Acrobat.
+ }
+
+% \usepackage{html}
+% \usepackage{progdoc}
+% \usepackage{listings}
+\usepackage{float}	
+\usepackage{enumitem}						% permet de placer un flottant où on veut avec {H}
+%------------Fin des inclusions--------------------------------------------------
+\newcommand{\R}{\mathbb{R}} 
+\newcommand{\Rbb}{\mathbb{R}} \newcommand{\Cbb}{\mathbb{C}}
+\newcommand{\E}{{\mathbb{E}}} \newcommand{\Prob}{{\mathbb{P}}}
+\newcommand{\scp}[2]{\langle #1, #2 \rangle}
+\newtheorem{theorem}{Theorem} \newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition} \newtheorem{lemma}{Lemma}
+\newtheorem{remark}{Remark} \newtheorem{corollary}{Corollary}
+\newcommand{\inv}[1]{\frac{1}{#1}} \newcommand{\tinv}[1]{{\textstyle\frac{1}{#1}}}
+\newcommand{\supp}{{\rm supp}\,} \newcommand{\sign}{{\rm sgn}\,}
+\renewcommand{\leq}{\leqslant} \renewcommand{\geq}{\geqslant}
+\newcommand{\norm}[1]{\|#1\|} \newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\ma}[1]{\mathsf{#1}}\newcommand{\set}[1]{\mathcal{#1}}
+\newcommand{\prox}{{\rm{prox}}}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+
+
+
+
+\makeindex
+
+\begin{document}
+
+\selectlanguage{english}
+
+%------------Titre--------------------------------------------------
+
+\begin{center}	
+	\huge{\textbf{\scshape PhD proposal: Application of Speech \& Sound Optimization Techniques for Real-World AAC TOBII D2, D3, D5, D6 Scenarios (WP2, WP3) }}\\
+	%\large{\textbf{\scshape graph theory and convex optimization}}\\
+	\vspace{0.5cm}
+	\Large{\textbf{Stockholm - January 2017}}\\
+	\vspace{0.5cm}
+
+	\begin{small}\textbf{\textsc{Motz} Benedicte} \end{small} \\
+\vspace{0.5cm}
+	\begin{minipage}[c]{63px} %\includegraphics[width=63px]{images/logoEPFL.jpg}
+	 \end{minipage}
+\end{center}
+
+%---------------------------------------------------------------------------
+
+
+\pagestyle{fancy}
+\headheight 15pt
+\lhead{\scshape ENRICH }	% En-tête haut de page gauche
+\chead{} 										% En-tête haut de page centré
+\rhead{\leftmark} 								% En-tête haut de page droite
+\lfoot{\scshape January 2017}	% En-tête pied de page gauche
+\cfoot{} 					% En-tête pied de page centré
+\rfoot{\thepage} 								% En-tête pied de page droite
+\renewcommand{\headrulewidth}{0.4pt} 			% Trace un trait de séparation de largeur 0.4 pt
+\renewcommand{\footrulewidth}{0.4pt} 			% Trace un trait de séparation de largeur 0.4 pt
+---------------------------------------------------------------------------
+
+
+\pagenumbering{roman}
+\tableofcontents
+\listoffigures
+\listoftables
+---------------------------------------------------------------------------
+
+\newpage
+\pagenumbering{arabic}
+\rfoot{\thepage/\pageref{LastPage}} 					% En-tête pied de page droite
+---------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%Introduction
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+This project proposes to help people with complex communication impairment in their everyday lives. Now a days different low-tech an high-tech systems permit to assist individuals with difficulties to speak. In this proposal we focus on high-tech systems, more precisely AAC devices.
+Technological development permitted the high-tech AAC devices to become effective communication aids enabling someone with speech impairment to communicate their wishes or needs, by generating the user's desired speech signal.\cite{higginbotham2007access} shows that improvements have to be done, to enable an easier accessibility of the device and a better communication and comprehension for the user and the listener respectively.
+Given proven successful techniques to improve the generated speech, the possibility that the speech can be enriched beyond more intelligibility gains motivates the current proposal. Enrichment denotes both modifications to the speech signal itself as well as augmentation.
+
+The general purpose of this project is thus to develop the means to improve spoken language communication throughout the lifespan, primarily in the AAC domain in scenarios such as classrooms, workplaces, household, with a specific focus on enabling speakers and listeners with communication problems to enjoy a greater level of inclusion. In other words, the objective is to pilot the application of speech enrichment in assistive technology.
+
+\paragraph{}
+ 
+The proposed work is separated in two steps. The first one consist in finding, understanding and assessing already existing speech generation techniques relevant for the production and improvement of the generated speech on the AAC devices. For example, how to enhance the speech, and reduce the cognitive effort of the listener ? \cite{ephraim1984speech}
+How to generate a speech better revealing the users emotions or personality? \cite{nass2000does,schroder2001emotional,iida2000speech}
+How to permit the user to be more involved in a communication and be more interesting to listen to?
+And finally which of all the found techniques are sufficiently advanced to be implemented and used in existing products?
+Documentation, and contact with the company TOBII Dynavox and other partners from the ENRICH network will enable to list a number of different realistic methods.
+
+In a second step we focus on the most suitable and promising methods and study a way to best adapt and integrate them in the devices with respect to their performance, in terms of data prerequisites (such as availability of speech-,language-, or cognitive models), computational complexity(algorithmic complexity and performance) or required user cooperation.
+
+
+
+
+
+
+%\section{Proportion of the Graphs}
+%
+%\begin{figure}[H]
+%  \centering
+%  {\label{RD1}\includegraphics[scale=0.5]{prop_Graph.png}}
+%  \caption{Proportion of the different Graphs for different PSNRs}
+%  \label{RD}
+%\end{figure}
+
+\clearpage 
+\appendix
+
+\bibliographystyle{IEEEtran}
+\bibliography{biblio}
+
+\printindex
+
+
+\end{document}
+
+%---------------------------------------------------------------------------
+%---------------------------------------------------------------------------
+%---------------------------------------------------------------------------
+%exemples:
+
+%image avec légende et référence
+%\begin{figure}[b]
+%\includegraphics[width=63px]{images/logoEPFL.jpg} 
+%\caption{un coucher de soleil}
+%\label{image_soleil}
+%\end{figure}
+
+%entrée d'index
+%\index{echange@échange}
+
+%référence
+%\ref{image_soleil}
+%\pageref{image_soleil}
+
+%note de bas de page
+%\footnote{ceci est une note de bas de page.}
+
+%citer ref bibliographique
+%\cite{label}
+
+%---------------------------------------------------------------------------
